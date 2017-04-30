@@ -1,17 +1,17 @@
-#N canvas 180 415 1502 665 10;
+#N canvas 175 160 1502 665 10;
 #X declare -path mmb;
 #X declare -path cyclone;
-#X declare -path o-knob;
 #X declare -path RE-abs;
+#X declare -path o-knob;
 #X obj 148 112 vsl 15 128 0 1 0 0 empty repeatrate-sl repeat_rate 0
--9 0 10 -262144 -1 -1 6629 1;
+-9 0 10 -262144 -1 -1 1302 1;
 #X obj 223 112 vsl 15 128 0 1 0 0 empty intensity-sl intensity 0 -9
 0 10 -262144 -1 -1 4134 1;
 #X obj 73 112 vsl 15 128 0 1 0 0 empty mode-sl mode 0 -9 0 10 -262144
--1 -1 12663 1;
+-1 -1 12573 1;
 #X obj 308 112 vsl 15 128 0 1 0 0 empty echovol-sl echo_volume 0 -9
-0 10 -262144 -1 -1 12650 1;
-#N canvas 4 81 721 325 things 0;
+0 10 -262144 -1 -1 12573 1;
+#N canvas 7 72 721 325 things 0;
 #X text 127 44 lospeed;
 #X msg 24 67 gain 2.30705 \, lpres 0.7079 \, lpfreq 12258 \, lpactive
 1 \, hsgain -8.26087 \, hsres 1.99526 \, hsfreq 3701.87 \, hsactive
@@ -24,13 +24,13 @@ pk1gain 6.08696 \, pk1res 1.49249 \, pk1freq 4472.96 \, pk1active 1
 #X text 124 146 hispeed;
 #X restore 1182 380 pd things;
 #X obj 393 112 vsl 15 128 0 1 0 0 empty wow-sl wow 0 -9 0 10 -262144
--1 -1 12700 1;
+-1 -1 6263 1;
 #X obj 448 112 vsl 15 128 0 1 0 0 empty flutter-sl flutter 0 -9 0 10
 -262144 -1 -1 0 1;
 #X obj 503 112 vsl 15 128 0 1 0 0 empty dirt-sl dirt 0 -9 0 10 -262144
--1 -1 1300 1;
-#X obj 1048 112 vsl 15 128 0 1 0 0 empty vol vol 0 -9 0 10 -262144
 -1 -1 0 1;
+#X obj 1048 112 vsl 15 128 0 1 0 0 empty vol vol 0 -9 0 10 -262144
+-1 -1 5928 1;
 #X obj 968 112 vsl 15 128 0 1 0 0 empty iomode-sl iomodes 0 -9 0 10
 -262144 -1 -1 0 1;
 #X obj 858 112 vsl 15 128 0 1 0 0 empty gaininL-sl gain_inL 0 -9 0
@@ -39,8 +39,7 @@ pk1gain 6.08696 \, pk1res 1.49249 \, pk1freq 4472.96 \, pk1active 1
 -262144 -1 -1 6338 1;
 #X obj 1182 282 declare -path mmb;
 #X obj 1182 303 declare -path cyclone;
-#X obj 1182 324 declare -path o-knob;
-#N canvas 324 88 1427 992 presets 0;
+#N canvas 329 52 1427 992 presets 0;
 #X obj 452 99 int;
 #X obj 704 103 int;
 #X obj 704 81 * 2;
@@ -117,24 +116,24 @@ a preset by sending a integer to o-load or o-save;
 #X text 632 12 do it ! (turn from left to right);
 #X obj 260 525 print;
 #X obj 768 119 loadbang;
-#X msg 27 796 \; playhead_filter 1 \; iomode 0 \; inbleed 1 \; echomode
-0.99707 \; loopamount 1 \; gaininR 0.499023 \; gaininL 0.499023 \;
-dirt 0.102362 \; flutter 0 \; wow 1 \; echovol 0.996094 \; intensity
-0.325512 \; repeatrate 0.102539 \;;
 #X msg 766 145 -1;
 #X obj 766 218 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 28 61 o-knob 5 1 0.2;
-#X obj 350 55 o-knob 5 2 0.02;
-#X obj 639 36 o-knob 5 3 0.02;
 #X msg 128 217 \; screenLine1 1:operation : \$1;
 #X msg 452 121 \; screenLine2 2:preset \$1;
 #X msg 742 82 \; screenLine3 3:L to R => OK;
-#X msg 347 796 \; playhead_filter 1 \; iomode 0 \; inbleed 1 \; echomode
-0.99707 \; loopamount 1 \; gaininR 0.499023 \; gaininL 0.499023 \;
-dirt 0.23622 \; flutter 0.433071 \; wow 1 \; echovol 0.996094 \; intensity
-0.325512 \; repeatrate 0.102539 \;;
-#X connect 0 0 78 0;
+#X obj 28 61 o-knob 5 1;
+#X obj 350 55 o-knob 5 2;
+#X obj 639 36 o-knob 5 3;
+#X msg 347 796 \; playhead_filter 0.99 \; iomode 0 \; inbleed 0.99
+\; echomode 0.99707 \; loopamount 0.99 \; gaininR 0.499023 \; gaininL
+0.499023 \; dirt 0.23622 \; flutter 0.433071 \; wow 0.99 \; echovol
+0.996094 \; intensity 0.325512 \; repeatrate 0.102539 \;;
+#X msg 27 796 \; iomode 0 \; gaininR 0.499023 \; gaininL 0.499023 \;
+loopamount 0.553711 \; playhead_filter 0.739258 \; inbleed 0.542969
+\; dirt 0 \; flutter 0 \; wow 0.493164 \; echovol 0.99 \; intensity
+0.325512 \; repeatrate 0.102539 \; echomode 0.99 \;;
+#X connect 0 0 74 0;
 #X connect 0 0 16 1;
 #X connect 0 0 21 0;
 #X connect 1 0 3 0;
@@ -144,7 +143,7 @@ dirt 0.23622 \; flutter 0.433071 \; wow 1 \; echovol 0.996094 \; intensity
 #X connect 4 1 5 0;
 #X connect 5 0 6 0;
 #X connect 6 0 7 0;
-#X connect 6 0 73 0;
+#X connect 6 0 72 0;
 #X connect 7 0 8 0;
 #X connect 8 0 15 0;
 #X connect 11 0 14 0;
@@ -166,8 +165,8 @@ dirt 0.23622 \; flutter 0.433071 \; wow 1 \; echovol 0.996094 \; intensity
 #X connect 23 0 25 0;
 #X connect 25 0 30 0;
 #X connect 25 1 29 1;
-#X connect 26 0 77 0;
-#X connect 27 0 77 0;
+#X connect 26 0 73 0;
+#X connect 27 0 73 0;
 #X connect 28 0 24 0;
 #X connect 29 0 28 0;
 #X connect 30 0 29 0;
@@ -177,9 +176,9 @@ dirt 0.23622 \; flutter 0.433071 \; wow 1 \; echovol 0.996094 \; intensity
 #X connect 48 0 22 0;
 #X connect 53 0 57 0;
 #X connect 56 0 23 1;
-#X connect 58 0 71 0;
+#X connect 58 0 80 0;
 #X connect 59 0 36 0;
-#X connect 60 0 80 0;
+#X connect 60 0 79 0;
 #X connect 61 0 37 0;
 #X connect 62 0 38 0;
 #X connect 63 0 39 0;
@@ -187,18 +186,18 @@ dirt 0.23622 \; flutter 0.433071 \; wow 1 \; echovol 0.996094 \; intensity
 #X connect 65 0 41 0;
 #X connect 66 0 42 0;
 #X connect 67 0 43 0;
-#X connect 70 0 72 0;
-#X connect 72 0 5 0;
-#X connect 74 1 13 0;
-#X connect 75 1 12 0;
-#X connect 76 1 79 0;
-#X connect 76 1 2 0;
-#X connect 76 1 44 0;
+#X connect 70 0 71 0;
+#X connect 71 0 5 0;
+#X connect 76 1 13 0;
+#X connect 77 1 12 0;
+#X connect 78 1 75 0;
+#X connect 78 1 2 0;
+#X connect 78 1 44 0;
 #X restore 1182 200 pd presets;
-#N canvas 190 123 460 854 page-selector 0;
+#N canvas 191 120 460 854 page-selector 0;
 #X obj 95 469 s o-page-selected;
 #X obj 95 207 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
--1 5;
+-1 1;
 #X obj 95 50 r aux;
 #X obj 95 72 sel 1;
 #X msg 95 144 1;
@@ -275,8 +274,8 @@ screenLine4 .;
 #X floatatom 1181 68 5 0 0 0 - - -, f 5;
 #X obj 1182 345 declare -path RE-abs;
 #X obj 557 110 tgl 15 0 empty bleed-sl input_bleed 0 -7 0 10 -262144
--1 -1 1 1;
-#N canvas 0 84 1920 996 RE-engine 0;
+-1 -1 0.542969 1;
+#N canvas 11 50 1905 999 RE-engine 0;
 #X obj 100 179 inlet mode;
 #X obj 196 181 inlet repeatrate;
 #X obj 327 180 inlet intensity;
@@ -350,7 +349,7 @@ screenLine4 .;
 4472.96 \, pk1active 1 \, hpres 0.707946 \, hpactive 1 \, hpfreq 130
 ;
 #X obj 260 202 tgl 15 0 empty empty playhead_filter 17 7 0 10 -262144
--1 -1 1 1;
+-1 -1 0.739258 1;
 #X msg 511 263 lpactive \$1 \, hsactive \$1 \, pk1active \$1 \, hp1active
 \$1;
 #X obj 254 134 inlet playhead_filter;
@@ -686,19 +685,7 @@ echoR 0 \;;
 #X obj 1135 381 r~ inL;
 #X obj 1225 381 r~ inR;
 #X obj 336 636 eq7.mmb~;
-#X obj 197 277 o-knob 1 2 0.02 repeatrate;
-#X obj 328 255 o-knob 1 3 0.02 intensity;
-#X obj 451 224 o-knob 1 4 0.02 echovol;
-#X obj 562 276 o-knob 2 1 0.02 wow;
-#X obj 640 256 o-knob 2 2 0.02 flutter;
-#X obj 743 225 o-knob 2 3 0.02 dirt;
 #X obj 831 311 > 0.5;
-#X obj 1181 175 o-knob 4 1 0.02 gaininL;
-#X obj 1225 257 o-knob 4 2 0.02 gaininR;
-#X obj 967 207 o-knob 3 2 0.02 loopamount;
-#X obj 100 223 o-knob 1 1 0.1 echomode;
-#X obj 831 290 o-knob 3 1 0.1 inbleed;
-#X obj 1396 198 o-knob 4 3 0.1 iomode;
 #N canvas 0 84 450 300 display 0;
 #X obj 90 53 * 5.99;
 #X obj 90 73 int;
@@ -727,7 +714,7 @@ echoR 0 \;;
 #X connect 10 0 7 0;
 #X connect 11 0 0 0;
 #X restore 269 224 pd display;
-#N canvas 0 84 450 300 display 0;
+#N canvas 5 78 450 300 display 0;
 #X msg 110 127 \; screenLine2 2:repeat rate : \$1;
 #X obj 110 106 expr 10*(int($f1*101)/100);
 #X obj 104 60 inlet;
@@ -834,9 +821,9 @@ echoR 0 \;;
 #X restore 1080 233 pd display;
 #X obj 1252 906 outlet~ L;
 #X obj 1414 913 outlet~ R;
-#X obj 101 11 cnv 15 980 108 empty empty empty 20 12 0 14 -66577 -66577
+#X obj 101 11 cnv 15 980 108 empty empty empty 20 12 0 12 -66577 -66577
 0;
-#X obj 108 19 cnv 15 155 92 empty empty RE-TAPE 7 21 1 32 -67729 -262144
+#X obj 108 19 cnv 15 155 92 empty empty RE-TAPE 7 21 1 30 -67729 -262144
 0;
 #X obj 273 91 cnv 15 20 20 empty led-gui empty 20 12 0 14 -99865 -66577
 0;
@@ -882,9 +869,8 @@ echoR 0 \;;
 #X msg 1024 322 set \$1;
 #X obj 1024 344 s playhead_filter-sl;
 #X obj 1024 277 inlet playhead_filter;
-#X obj 113 58 cnv 15 145 48 empty empty ECHO 9 25 1 44 -66577 -262144
+#X obj 113 58 cnv 15 145 48 empty empty ECHO 9 25 1 42 -66577 -262144
 0;
-#X obj 1024 300 o-knob 3 3 0.02 playhead_filter;
 #X text 1754 43 Page 1 \; mode: \; repeat rate \; intensity \; echo
 volume \; \; Page 2 \; wow \; flutter \; dirt \; \; Page 3 \; input
 bleed \; tape loop amount \; playhead filter \; \; Page 4 \; gain inL
@@ -950,23 +936,40 @@ bleed \; tape loop amount \; playhead filter \; \; Page 4 \; gain inL
 #X obj 684 574 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 768 617 s bypass;
-#X connect 0 0 71 0;
-#X connect 1 0 61 0;
-#X connect 2 0 62 0;
-#X connect 3 0 63 0;
-#X connect 4 0 64 0;
-#X connect 5 0 65 0;
-#X connect 6 0 66 0;
-#X connect 7 0 72 0;
-#X connect 8 0 68 0;
-#X connect 9 0 69 0;
-#X connect 10 0 73 0;
-#X connect 11 0 70 0;
+#X obj 100 223 o-knob 1 1 echomode;
+#X obj 197 277 o-knob 1 2 repeatrate;
+#X obj 328 255 o-knob 1 3 intensity;
+#X obj 451 224 o-knob 1 4 echovol;
+#X obj 562 276 o-knob 2 1 wow;
+#X obj 640 256 o-knob 2 2 flutter;
+#X obj 743 225 o-knob 2 3 dirt;
+#X obj 831 290 o-knob 3 1 inbleed;
+#X obj 1024 300 o-knob 3 3 playhead_filter;
+#X obj 967 207 o-knob 3 2 loopamount;
+#X obj 1182 175 o-knob 4 1 gaininL;
+#X obj 1225 257 o-knob 4 2 gaininR;
+#X obj 1396 198 o-knob 4 3 iomode;
+#X floatatom 660 201 5 0 0 0 - - -, f 5;
+#X floatatom 583 205 5 0 0 0 - - -, f 5;
+#X connect 0 0 124 0;
+#X connect 1 0 125 0;
+#X connect 2 0 126 0;
+#X connect 3 0 127 0;
+#X connect 4 0 128 0;
+#X connect 4 0 138 0;
+#X connect 5 0 129 0;
+#X connect 5 0 137 0;
+#X connect 6 0 130 0;
+#X connect 7 0 131 0;
+#X connect 8 0 134 0;
+#X connect 9 0 135 0;
+#X connect 10 0 136 0;
+#X connect 11 0 133 0;
 #X connect 12 0 50 0;
 #X connect 13 0 42 0;
 #X connect 13 0 43 0;
 #X connect 13 0 44 0;
-#X connect 13 0 128 1;
+#X connect 13 0 115 1;
 #X connect 16 0 19 0;
 #X connect 18 0 49 0;
 #X connect 19 0 48 0;
@@ -985,9 +988,9 @@ bleed \; tape loop amount \; playhead filter \; \; Page 4 \; gain inL
 #X connect 32 0 35 0;
 #X connect 33 0 34 0;
 #X connect 34 0 56 0;
-#X connect 34 0 87 0;
+#X connect 34 0 75 0;
 #X connect 35 0 57 0;
-#X connect 35 0 86 0;
+#X connect 35 0 74 0;
 #X connect 37 0 36 0;
 #X connect 38 0 40 0;
 #X connect 39 0 41 0;
@@ -999,7 +1002,7 @@ bleed \; tape loop amount \; playhead filter \; \; Page 4 \; gain inL
 #X connect 42 1 33 0;
 #X connect 43 0 32 0;
 #X connect 43 0 33 0;
-#X connect 44 0 124 0;
+#X connect 44 0 111 0;
 #X connect 45 0 32 0;
 #X connect 45 1 33 0;
 #X connect 46 0 33 0;
@@ -1019,74 +1022,74 @@ bleed \; tape loop amount \; playhead filter \; \; Page 4 \; gain inL
 #X connect 60 0 47 0;
 #X connect 60 0 25 1;
 #X connect 60 0 23 0;
-#X connect 61 0 30 0;
-#X connect 61 0 94 0;
-#X connect 61 1 75 0;
-#X connect 62 0 96 0;
-#X connect 62 0 125 0;
-#X connect 62 1 76 0;
-#X connect 63 0 54 0;
-#X connect 63 0 98 0;
-#X connect 63 1 77 0;
-#X connect 64 0 123 0;
-#X connect 64 0 100 0;
-#X connect 64 1 78 0;
-#X connect 65 0 123 1;
-#X connect 65 0 102 0;
-#X connect 65 1 79 0;
-#X connect 66 0 123 2;
-#X connect 66 0 103 0;
-#X connect 66 1 80 0;
-#X connect 67 0 37 0;
-#X connect 68 0 52 0;
-#X connect 68 0 108 0;
-#X connect 68 1 82 0;
-#X connect 69 0 53 0;
-#X connect 69 0 110 0;
-#X connect 69 1 83 0;
-#X connect 70 0 25 2;
-#X connect 70 0 114 0;
-#X connect 70 1 85 0;
-#X connect 71 0 29 0;
-#X connect 71 0 95 0;
-#X connect 71 1 74 0;
-#X connect 72 0 67 0;
-#X connect 72 0 106 0;
-#X connect 72 1 81 0;
-#X connect 73 0 31 0;
-#X connect 73 0 112 0;
-#X connect 73 1 84 0;
-#X connect 94 0 93 0;
-#X connect 95 0 92 0;
+#X connect 61 0 37 0;
+#X connect 82 0 81 0;
+#X connect 83 0 80 0;
+#X connect 84 0 85 0;
+#X connect 86 0 87 0;
+#X connect 88 0 89 0;
+#X connect 90 0 92 0;
+#X connect 91 0 93 0;
+#X connect 94 0 95 0;
 #X connect 96 0 97 0;
 #X connect 98 0 99 0;
 #X connect 100 0 101 0;
-#X connect 102 0 104 0;
-#X connect 103 0 105 0;
-#X connect 106 0 107 0;
-#X connect 108 0 109 0;
-#X connect 110 0 111 0;
+#X connect 102 0 103 0;
+#X connect 105 0 106 0;
+#X connect 107 0 132 0;
+#X connect 110 0 24 1;
+#X connect 111 0 23 0;
 #X connect 112 0 113 0;
+#X connect 113 0 22 0;
 #X connect 114 0 115 0;
-#X connect 117 0 118 0;
-#X connect 119 0 121 0;
-#X connect 121 0 117 0;
-#X connect 121 0 28 1;
-#X connect 121 1 116 0;
-#X connect 123 0 24 1;
-#X connect 124 0 23 0;
-#X connect 125 0 126 0;
-#X connect 126 0 22 0;
-#X connect 127 0 128 0;
-#X connect 128 0 17 0;
-#X connect 129 0 130 0;
-#X connect 130 0 135 0;
-#X connect 131 0 132 0;
-#X connect 132 0 133 0;
-#X connect 133 0 134 0;
-#X connect 134 0 135 0;
-#X connect 135 0 127 0;
-#X connect 135 0 136 0;
+#X connect 115 0 17 0;
+#X connect 116 0 117 0;
+#X connect 117 0 122 0;
+#X connect 118 0 119 0;
+#X connect 119 0 120 0;
+#X connect 120 0 121 0;
+#X connect 121 0 122 0;
+#X connect 122 0 114 0;
+#X connect 122 0 123 0;
+#X connect 124 0 29 0;
+#X connect 124 0 83 0;
+#X connect 124 1 62 0;
+#X connect 125 0 30 0;
+#X connect 125 0 82 0;
+#X connect 125 1 63 0;
+#X connect 126 0 84 0;
+#X connect 126 0 112 0;
+#X connect 126 1 64 0;
+#X connect 127 0 54 0;
+#X connect 127 0 86 0;
+#X connect 127 1 65 0;
+#X connect 128 0 110 0;
+#X connect 128 0 88 0;
+#X connect 128 1 66 0;
+#X connect 129 0 110 1;
+#X connect 129 0 90 0;
+#X connect 129 1 67 0;
+#X connect 130 0 110 2;
+#X connect 130 0 91 0;
+#X connect 130 1 68 0;
+#X connect 131 0 61 0;
+#X connect 131 0 94 0;
+#X connect 131 1 69 0;
+#X connect 132 0 105 0;
+#X connect 132 0 28 1;
+#X connect 132 1 104 0;
+#X connect 133 0 25 2;
+#X connect 133 0 102 0;
+#X connect 133 1 73 0;
+#X connect 134 0 52 0;
+#X connect 134 0 96 0;
+#X connect 134 1 70 0;
+#X connect 135 0 53 0;
+#X connect 135 0 98 0;
+#X connect 135 1 71 0;
+#X connect 136 0 31 0;
+#X connect 136 0 100 0;
+#X connect 136 1 72 0;
 #X coords 0 -1 1 1 982 110 1 100 10;
 #X restore 73 251 pd RE-engine;
 #X obj 73 378 dac~;
@@ -1101,12 +1104,12 @@ bleed \; tape loop amount \; playhead filter \; \; Page 4 \; gain inL
 #X obj 1182 221 hradio 15 1 0 8 o-load empty load -30 7 0 10 -204786
 -1 -1 0;
 #X obj 747 110 tgl 15 0 empty playhead_filter-sl playhead_filter 0
--7 0 10 -262144 -1 -1 1 1;
+-7 0 10 -262144 -1 -1 0.739258 1;
 #X obj 642 110 tgl 15 0 empty tapeamount-sl tapeloop_amount 0 -7 0
-10 -262144 -1 -1 1 1;
+10 -262144 -1 -1 0.553711 1;
 #X obj 1181 29 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
 -1 -1 4;
-#N canvas 417 117 568 228 screen 0;
+#N canvas 418 114 568 228 screen 0;
 #X obj 39 23 r screenLine1;
 #X symbolatom 103 117 21 0 0 0 - - -, f 21;
 #X obj 136 23 r screenLine2;
@@ -1144,27 +1147,30 @@ nudge the tempo by 1 and -1 BPM \; Notes D# (63) and E (64) respectively
 nudge the tempo by 0.1 and -0.1 BPM \; \; Last B (83) : toggles bypass
 tails-style. The led flashes red when fx is ON and yellow when it's
 in BYPASS;
-#X connect 0 0 20 1;
-#X connect 1 0 20 2;
-#X connect 2 0 20 0;
-#X connect 3 0 20 3;
-#X connect 5 0 20 4;
-#X connect 6 0 20 5;
-#X connect 7 0 20 6;
-#X connect 8 0 20 13;
-#X connect 9 0 20 12;
-#X connect 10 0 20 10;
-#X connect 11 0 20 11;
-#X connect 16 0 17 0;
-#X connect 19 0 20 7;
-#X connect 20 0 22 0;
-#X connect 20 1 23 0;
-#X connect 22 0 21 0;
+#X text 90 463 CHANGE LOG for V1.1 \; -moved to o-knob library v2 \;
+-font resizing;
+#X obj 1182 324 declare -path o-knob;
+#X connect 0 0 19 1;
+#X connect 1 0 19 2;
+#X connect 2 0 19 0;
+#X connect 3 0 19 3;
+#X connect 5 0 19 4;
+#X connect 6 0 19 5;
+#X connect 7 0 19 6;
+#X connect 8 0 19 13;
+#X connect 9 0 19 12;
+#X connect 10 0 19 10;
+#X connect 11 0 19 11;
+#X connect 15 0 16 0;
+#X connect 18 0 19 7;
+#X connect 19 0 21 0;
+#X connect 19 1 22 0;
+#X connect 21 0 20 0;
+#X connect 22 0 20 1;
+#X connect 23 0 22 1;
 #X connect 23 0 21 1;
-#X connect 24 0 23 1;
-#X connect 24 0 22 1;
-#X connect 25 0 26 0;
-#X connect 26 0 24 0;
-#X connect 29 0 20 9;
-#X connect 30 0 20 8;
-#X connect 31 0 16 0;
+#X connect 24 0 25 0;
+#X connect 25 0 23 0;
+#X connect 28 0 19 9;
+#X connect 29 0 19 8;
+#X connect 30 0 15 0;
