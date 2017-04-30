@@ -1,6 +1,6 @@
 # RE-Tape-Echo
 
-** RE-Tape Echo is an attempt to recreate my own Roland RE-150 Space Echo in Pure Data for Critter and Guitari's Organelle.**
+**RE-Tape Echo is an attempt to recreate my own Roland RE-150 Space Echo in Pure Data for Critter and Guitari's Organelle.**
 
 **Featuring :**
 * original controls on the first page : 6 echo modes, repeat rate, intensity, echo volume
