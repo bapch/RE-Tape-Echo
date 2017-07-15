@@ -25,6 +25,9 @@
 * add a sound-on-sound option
 * rename Single and Repeat modes to Repeat and Single :o)
 
+### v1.2 changes :
+* presets now are actually saved across reboots and reloads… don’t laugh.
+* thresholding has been modified to allow an easier and consistent reach of extreme pot values
 
 ### v1.1 changes :
 * move to o-knob library v2 : it’s much easier to dial parameters…
