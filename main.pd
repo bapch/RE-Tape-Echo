@@ -1,4 +1,4 @@
-#N canvas 175 160 1502 665 10;
+#N canvas 169 184 1502 665 10;
 #X declare -path mmb;
 #X declare -path cyclone;
 #X declare -path RE-abs;
@@ -30,7 +30,7 @@ pk1gain 6.08696 \, pk1res 1.49249 \, pk1freq 4472.96 \, pk1active 1
 #X obj 503 112 vsl 15 128 0 1 0 0 empty dirt-sl dirt 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 1048 112 vsl 15 128 0 1 0 0 empty vol vol 0 -9 0 10 -262144
--1 -1 5928 1;
+-1 -1 0 1;
 #X obj 968 112 vsl 15 128 0 1 0 0 empty iomode-sl iomodes 0 -9 0 10
 -262144 -1 -1 0 1;
 #X obj 858 112 vsl 15 128 0 1 0 0 empty gaininL-sl gain_inL 0 -9 0
@@ -39,7 +39,7 @@ pk1gain 6.08696 \, pk1res 1.49249 \, pk1freq 4472.96 \, pk1active 1
 -262144 -1 -1 6338 1;
 #X obj 1182 282 declare -path mmb;
 #X obj 1182 303 declare -path cyclone;
-#N canvas 329 52 1427 992 presets 0;
+#N canvas 323 90 1427 990 presets 0;
 #X obj 452 99 int;
 #X obj 704 103 int;
 #X obj 704 81 * 2;
@@ -62,7 +62,6 @@ pk1gain 6.08696 \, pk1res 1.49249 \, pk1freq 4472.96 \, pk1active 1
 #X text 741 372 load;
 #X floatatom 163 105 5 0 0 0 - - -, f 5;
 #X floatatom 489 100 5 0 0 0 - - -, f 5;
-#X obj 399 372 t b f f;
 #X obj 341 516 list prepend;
 #X obj 341 688 s;
 #X obj 341 538 list split 1;
@@ -73,7 +72,7 @@ pk1gain 6.08696 \, pk1res 1.49249 \, pk1freq 4472.96 \, pk1active 1
 #X obj 341 578 t b s, f 10;
 #X text 585 416 clean;
 #X text 445 518 route;
-#X text 165 423 get;
+#X text 207 433 get;
 #X msg 22 365 \; screenLine4 SAVED to PRESET \$1;
 #X msg 665 421 \; screenLine4 PRESET \$1 LOADED;
 #X msg 207 796 \; playhead_filter 0 \; iomode 0 \; inbleed 0 \; echomode
@@ -84,17 +83,16 @@ dirt 0 \; flutter 0 \; wow 0 \; echovol 0.996094 \; intensity 0.325512
 #X msg 618 796;
 #X msg 757 796;
 #X msg 888 796;
-#X msg 1028 796;
 #X msg 1165 796;
 #X msg 1307 796;
 #X floatatom 755 60 5 0 0 0 - - -, f 5;
 #X text 25 736 Your presets are here. You can have as much presets
 as you want. Note that you can only save floats !;
-#X obj 197 422 s o-get-params;
+#X obj 239 432 s o-get-params;
 #X obj 341 461 r o-params;
 #X obj 229 303 r o-save;
 #X text 294 303 << RESERVED;
-#X text 305 423 << RESERVED;
+#X text 347 433 << RESERVED;
 #X text 415 462 << RESERVED;
 #X text 684 299 << RESERVED;
 #X obj 617 299 r o-load;
@@ -133,7 +131,11 @@ a preset by sending a integer to o-load or o-save;
 loopamount 0.553711 \; playhead_filter 0.739258 \; inbleed 0.542969
 \; dirt 0 \; flutter 0 \; wow 0.493164 \; echovol 0.99 \; intensity
 0.325512 \; repeatrate 0.102539 \; echomode 0.99 \;;
-#X connect 0 0 74 0;
+#X obj 48 472 s pd-main.pd;
+#X msg 48 452 menusave;
+#X obj 399 372 t b b f f;
+#X msg 1028 796;
+#X connect 0 0 72 0;
 #X connect 0 0 16 1;
 #X connect 0 0 21 0;
 #X connect 1 0 3 0;
@@ -143,7 +145,7 @@ loopamount 0.553711 \; playhead_filter 0.739258 \; inbleed 0.542969
 #X connect 4 1 5 0;
 #X connect 5 0 6 0;
 #X connect 6 0 7 0;
-#X connect 6 0 72 0;
+#X connect 6 0 70 0;
 #X connect 7 0 8 0;
 #X connect 8 0 15 0;
 #X connect 11 0 14 0;
@@ -151,48 +153,50 @@ loopamount 0.553711 \; playhead_filter 0.739258 \; inbleed 0.542969
 #X connect 11 0 20 0;
 #X connect 12 0 0 0;
 #X connect 13 0 11 0;
-#X connect 14 0 26 0;
-#X connect 14 1 27 0;
+#X connect 14 0 25 0;
+#X connect 14 1 26 0;
 #X connect 15 0 16 0;
 #X connect 16 0 17 0;
-#X connect 17 0 22 0;
-#X connect 17 0 34 0;
-#X connect 17 1 57 0;
-#X connect 17 1 35 0;
-#X connect 22 0 46 0;
-#X connect 22 1 56 0;
-#X connect 22 2 55 0;
-#X connect 23 0 25 0;
-#X connect 25 0 30 0;
-#X connect 25 1 29 1;
-#X connect 26 0 73 0;
-#X connect 27 0 73 0;
-#X connect 28 0 24 0;
+#X connect 17 0 33 0;
+#X connect 17 0 81 0;
+#X connect 17 1 55 0;
+#X connect 17 1 34 0;
+#X connect 22 0 24 0;
+#X connect 24 0 29 0;
+#X connect 24 1 28 1;
+#X connect 25 0 71 0;
+#X connect 26 0 71 0;
+#X connect 27 0 23 0;
+#X connect 28 0 27 0;
 #X connect 29 0 28 0;
-#X connect 30 0 29 0;
-#X connect 30 1 24 1;
-#X connect 47 0 69 0;
-#X connect 47 0 23 0;
-#X connect 48 0 22 0;
-#X connect 53 0 57 0;
-#X connect 56 0 23 1;
-#X connect 58 0 80 0;
+#X connect 29 1 23 1;
+#X connect 45 0 67 0;
+#X connect 45 0 22 0;
+#X connect 46 0 81 0;
+#X connect 51 0 55 0;
+#X connect 54 0 22 1;
+#X connect 56 0 78 0;
+#X connect 57 0 35 0;
+#X connect 58 0 77 0;
 #X connect 59 0 36 0;
-#X connect 60 0 79 0;
-#X connect 61 0 37 0;
-#X connect 62 0 38 0;
-#X connect 63 0 39 0;
+#X connect 60 0 37 0;
+#X connect 61 0 38 0;
+#X connect 62 0 39 0;
+#X connect 63 0 82 0;
 #X connect 64 0 40 0;
 #X connect 65 0 41 0;
-#X connect 66 0 42 0;
-#X connect 67 0 43 0;
-#X connect 70 0 71 0;
-#X connect 71 0 5 0;
-#X connect 76 1 13 0;
-#X connect 77 1 12 0;
-#X connect 78 1 75 0;
-#X connect 78 1 2 0;
-#X connect 78 1 44 0;
+#X connect 68 0 69 0;
+#X connect 69 0 5 0;
+#X connect 74 1 13 0;
+#X connect 75 1 12 0;
+#X connect 76 1 73 0;
+#X connect 76 1 2 0;
+#X connect 76 1 42 0;
+#X connect 80 0 79 0;
+#X connect 81 0 80 0;
+#X connect 81 1 44 0;
+#X connect 81 2 54 0;
+#X connect 81 3 53 0;
 #X restore 1182 200 pd presets;
 #N canvas 191 120 460 854 page-selector 0;
 #X obj 95 469 s o-page-selected;
@@ -275,7 +279,7 @@ screenLine4 .;
 #X obj 1182 345 declare -path RE-abs;
 #X obj 557 110 tgl 15 0 empty bleed-sl input_bleed 0 -7 0 10 -262144
 -1 -1 0.542969 1;
-#N canvas 11 50 1905 999 RE-engine 0;
+#N canvas 0 90 1920 990 RE-engine 0;
 #X obj 100 179 inlet mode;
 #X obj 196 181 inlet repeatrate;
 #X obj 327 180 inlet intensity;
@@ -1100,7 +1104,7 @@ bleed \; tape loop amount \; playhead filter \; \; Page 4 \; gain inL
 #X obj 132 364 loadbang;
 #X msg 132 386 0;
 #X obj 1182 241 hradio 15 1 0 8 o-save empty save -30 7 0 10 -261234
--1 -1 2;
+-1 -1 7;
 #X obj 1182 221 hradio 15 1 0 8 o-load empty load -30 7 0 10 -204786
 -1 -1 0;
 #X obj 747 110 tgl 15 0 empty playhead_filter-sl playhead_filter 0
